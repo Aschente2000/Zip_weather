@@ -8,8 +8,14 @@
   </div>
 </template>
 
+
 <script>
 
+//Dylan Daniels 
+//CIS 131
+//12/11/2020
+
+//imports from my components that gather user input and display them
 import ZipCode from './components/ZipCode.vue'
 import Weather from './components/Weather.vue'
 import axios from 'axios';
@@ -41,6 +47,7 @@ export default {
   {
     updateWeather(zip)
     {
+      //grabs axios response for the open weather map and binds the response into our variable that allows us to access the information for the provided zip code
       axios.get("https://api.openweathermap.org/data/2.5/weather?zip="+zip+",us&appid=960407da8a9c327e446e6e1ad12629df").then( (response) => {
         this.iniTemp = response.data.main.temp;
         this.weatherInfo = response.data;
@@ -48,7 +55,7 @@ export default {
         this.condition = this.weatherInfo.weather[0].description;
         this.imageUrl = "http://openweathermap.org/img/wn/"+this.icon+"@4x.png"
         
-
+      //checks radio boxes on sumbit and runs our updateTemp method
         if(document.getElementById('flexRadioDefault1').checked)
         {
           this.updateTemp(true);
@@ -64,6 +71,7 @@ export default {
     },
     updateTemp(temperature)
     {
+      //recieves boolean data from ZipCode.vue that checks if the user wanted the temp displayed in C or F and then converts our kelvin temp into such
       if(temperature)
       {
         this.type = "°F";
@@ -82,7 +90,7 @@ export default {
 </script>
 
 <style>
-
+/* some of our own styling */
 body{
   padding-top:60px;
   background-image: url(assets/weather.jpg);

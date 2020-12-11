@@ -1,9 +1,6 @@
 <template>
     <div>
-        <!-- <p>temp: {{temp}} {{type}}</p>
-        <p>conditions: </p>
-        <img v-bind:src="condition">
-        <p>city: {{city}}</p> -->
+        <!-- a simple list group made with bootstrap that uses props that were recieved from app.vue and displays/updates data -->
         <ul class="list-group">
             <li class="list-group-item">City: {{city}}</li>
             <li class="list-group-item">Temperature: {{temp}} {{type}}</li>
@@ -14,6 +11,9 @@
 </template>
 
 <script>
+//Dylan Daniels 
+//CIS 131
+//12/11/2020
 export default {
     name: "Weather",
     props:['city','condition', 'conditionImg', 'temp', 'type']

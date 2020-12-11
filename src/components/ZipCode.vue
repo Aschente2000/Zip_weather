@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- a bunch of bootstrap styling, but creates an input that allows the user to type in a zip code and check a radio box -->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Zip Code:</span>
@@ -25,6 +26,9 @@
 </template>
 
 <script>
+//Dylan Daniels 
+//CIS 131
+//12/11/2020
 export default {
     name:"ZipCode",
     data: function() {
@@ -36,8 +40,10 @@ export default {
             celsius: false,
             zipCheck: /^\d{5}(-\d{4})?(?!-)$/
         }
+        //uses a regular expression to check to make sure the user has input is in zip code format
     },
     methods: {
+        //checks our zip and continues if it passes and tells them that is it not valid otherwise, axious is not called
         logit: function() {
             if(this.zipCheck.test(this.zip))
             {
@@ -55,6 +61,7 @@ export default {
 
         },
         tempCheck()
+        //checks radio boxes before firing event for our methods in the app.vue
         {
 
             if(this.ready)
